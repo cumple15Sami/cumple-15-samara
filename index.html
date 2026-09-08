@@ -1,241 +1,399 @@
-<!DOCTYPE html>
+
+   <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mis 15 | Samara</title>
-
-    <!-- TIPOGRAFÍAS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Great+Vibes&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 15 | Samara ✨</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #170d2b, #32145c, #160b27);
+      color: white;
+      overflow-x: hidden;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,215,120,.7) 1px, transparent 1px);
+      background-size: 90px 90px, 140px 140px;
+      background-position: 10px 20px, 50px 70px;
+      opacity: .45;
+    }
+    .contenido {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+      width: 100%;
+    }
+    .corona {
+      font-size: 55px;
+      margin-bottom: 15px;
+      animation: brillo 2s infinite alternate;
+    }
+    h1 {
+      font-size: clamp(55px, 12vw, 105px);
+      font-weight: normal;
+      color: #f7d982;
+      text-shadow:
+        0 0 10px rgba(255,215,120,.7),
+        0 0 25px rgba(255,215,120,.4);
+      letter-spacing: 4px;
+    }
+    .mis15 {
+      font-size: clamp(22px, 5vw, 38px);
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .nombre {
+      font-size: clamp(65px, 15vw, 130px);
+      color: #ead8ff;
+      font-style: italic;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(220,180,255,.6);
+    }
+    .frase {
+      font-size: clamp(18px, 4vw, 27px);
+      line-height: 1.7;
+      color: #f8eaff;
+      margin: 20px auto;
+      max-width: 650px;
+    }
+    .fecha {
+      margin-top: 35px;
+      font-size: clamp(23px, 5vw, 38px);
+      color: #f7d982;
+    }
+    .hora {
+      margin-top: 10px;
+      font-size: 21px;
+    }
+    .boton {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 30px;
+      border: 1px solid #f7d982;
+      border-radius: 40px;
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255,255,255,.08);
+      transition: .3s;
+      font-size: 17px;
+    }
+    .boton:hover {
+      background: #f7d982;
+      color: #32145c;
+      transform: scale(1.05);
+    }
+    .tarjeta {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(247,217,130,.55);
+      border-radius: 25px;
+      padding: 45px 25px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 35px rgba(0,0,0,.25);
+      margin: 20px auto;
+      max-width: 700px;
+    }
+    .tarjeta h2 {
+      color: #f7d982;
+      font-size: 38px;
+      margin-bottom: 25px;
+      font-weight: normal;
+    }
+    .detalle {
+      font-size: 20px;
+      line-height: 2;
+      color: #f7edff;
+    }
+    .separador {
+      width: 100px;
+      height: 1px;
+      background: #f7d982;
+      margin: 25px auto;
+    }
+    .farolito {
+      position: absolute;
+      width: 28px;
+      height: 38px;
+      border-radius: 45% 45% 40% 40%;
+      background: linear-gradient(#fff4b0, #f5a83c);
+      box-shadow:
+        0 0 15px #ffd45c,
+        0 0 35px #ffb52e,
+        0 0 60px rgba(255,180,40,.5);
+      opacity: .85;
+      animation: flotar 9s infinite ease-in-out;
+    }
+    .farolito::before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: 7px;
+      width: 14px;
+      height: 8px;
+      border: 2px solid #d99b36;
+      border-bottom: none;  
+ border-radius: 10px 10px 0 0;
+    }
+    .f1 { left: 8%; bottom: -50px; animation-delay: 0s; }
+    .f2 { left: 23%; bottom: -80px; animation-delay: 2s; transform: scale(.7); }
+    .f3 { left: 48%; bottom: -60px; animation-delay: 4s; transform: scale(.85); }
+    .f4 { left: 72%; bottom: -90px; animation-delay: 1s; transform: scale(.65); }
+    .f5 { left: 88%; bottom: -70px; animation-delay: 3s; transform: scale(.9); }
+    .scroll {
+      margin-top: 35px;
+      font-size: 14px;
+      color: #dbc9ee;
+      animation: subirBajar 1.8s infinite;
+    }
+    #musica {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+      border: none;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      background: #f7d982;
+      color: #32145c;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(247,217,130,.6);
+    }
+    .rsvp {
+      margin-top: 30px;
+    }
+    .rsvp a {
+      display: inline-block;
+      background: #f7d982;
+      color: #32145c;
+      padding: 15px 28px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: .3s;
+    }
+    .rsvp a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(247,217,130,.5);
+    }
+    footer {
+      padding: 30px 20px 50px;
+      background: #10071d;
+      text-align: center;
+      color: #cdbbdf;
+      font-size: 15px;
+    }
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) translateX(0) scale(.8);
+        opacity: 0;
+      }
+      10% {
+        opacity: .9;
+      }
+      50% {
+        transform: translateY(-55vh) translateX(35px) scale(1);
+      }
+      100% {
+        transform: translateY(-115vh) translateX(-25px) scale(.7);
+        opacity: 0;
+      }
+    }
+    @keyframes brillo {
+      from {
+        text-shadow: 0 0 8px #ffd76e;
+      }
+      to {
+        text-shadow:
+          0 0 15px #ffd76e,
+          0 0 35px #f5b82e;
+      }
+    }
+    @keyframes subirBajar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(8px);
+      }
+    }
+    @media (max-width: 600px) {
+      section {
+        min-height: 100svh;
+      }
+      .tarjeta {
+        padding: 35px 18px;
+      }
+      .detalle {
+        font-size: 18px;
+      }
+      #musica {
+        width: 48px;
+        height: 48px;
+        bottom: 15px;
+        right: 15px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-    <main class="cover">
-
-        <!-- =================================
-             FOTO DE SAMARA
-        ================================== -->
-
-        <img
-            src="samara.jpg"
-            alt="Samara"
-            class="foto-samara"
-        >
-
-
-        <!-- =================================
-             CAPAS MÁGICAS
-        ================================== -->
-
-        <div class="overlay"></div>
-        <div class="vignette"></div>
-
-
-        <!-- =================================
-             ESTRELLAS
-        ================================== -->
-
-        <div id="stars"></div>
-
-
-        <!-- =================================
-             FAROLES CSS
-        ================================== -->
-
-        <div class="lanterns">
-
-            <!-- FAROL 1 -->
-            <div class="lantern lantern-1">
-
-                <div class="lantern-top"></div>
-
-                <div class="lantern-body">
-                    <div class="lantern-light"></div>
-                </div>
-
-                <div class="lantern-bottom"></div>
-
-            </div>
-
-
-            <!-- FAROL 2 -->
-            <div class="lantern lantern-2">
-
-                <div class="lantern-top"></div>
-
-                <div class="lantern-body">
-                    <div class="lantern-light"></div>
-                </div>
-
-                <div class="lantern-bottom"></div>
-
-            </div>
-
-
-            <!-- FAROL 3 -->
-            <div class="lantern lantern-3">
-
-                <div class="lantern-top"></div>
-
-                <div class="lantern-body">
-                    <div class="lantern-light"></div>
-                </div>
-
-                <div class="lantern-bottom"></div>
-
-            </div>
-
-
-            <!-- FAROL 4 -->
-            <div class="lantern lantern-4">
-
-                <div class="lantern-top"></div>
-
-                <div class="lantern-body">
-                    <div class="lantern-light"></div>
-                </div>
-
-                <div class="lantern-bottom"></div>
-
-            </div>
-
-
-            <!-- FAROL 5 -->
-            <div class="lantern lantern-5">
-
-                <div class="lantern-top"></div>
-
-                <div class="lantern-body">
-                    <div class="lantern-light"></div>
-                </div>
-
-                <div class="lantern-bottom"></div>
-
-            </div>
-
-
-            <!-- FAROL 6 -->
-            <div class="lantern lantern-6">
-
-                <div class="lantern-top"></div>
-
-                <div class="lantern-body">
-                    <div class="lantern-light"></div>
-                </div>
-
-                <div class="lantern-bottom"></div>
-
-            </div>
-
-
-            <!-- FAROL 7 -->
-            <div class="lantern lantern-7">
-
-                <div class="lantern-top"></div>
-
-                <div class="lantern-body">
-                    <div class="lantern-light"></div>
-                </div>
-
-                <div class="lantern-bottom"></div>
-
-            </div>
-
+  <div class="stars"></div>
+  <!-- FAROLITOS -->
+  <div class="farolito f1"></div>
+  <div class="farolito f2"></div>
+  <div class="farolito f3"></div>
+  <div class="farolito f4"></div>
+  <div class="farolito f5"></div>
+  <!-- MÚSICA -->
+  <audio id="audio" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+  <button id="musica" onclick="toggleMusica()" aria-label="Reproducir música">
+    🎵
+  </button>
+  <!-- PORTADA -->
+  <section>
+    <div class="contenido">
+      <div class="corona">👑</div>
+      <div class="mis15">Mis 15</div>
+      <div class="nombre">Samara</div>
+      <div class="separador"></div>
+         <p class="frase">
+        Hay momentos en la vida que se convierten
+        en recuerdos para siempre...
+        <br><br>
+        Y quiero compartir uno de los más importantes
+        con las personas que amo.
+      </p>
+      <div class="fecha">
+        07 · 11 · 2027
+      </div>
+      <div class="hora">
+        21:00 hs
+      </div>
+      <a href="#detalles" class="boton">
+        Descubrir la invitación ✨
+      </a>
+      <div class="scroll">
+        Deslizá para continuar ↓
+      </div>
+    </div>
+  </section>
+  <!-- DETALLES -->
+  <section id="detalles">
+    <div class="contenido">
+      <div class="tarjeta">
+        <div class="corona">✨</div>
+        <h2>Una noche mágica</h2>
+        <div class="separador"></div>
+        <div class="detalle">
+          <p>
+            <strong>Samara</strong> cumple 15 años
+            y quiere celebrar este momento
+            tan especial junto a ustedes.
+          </p>
+          <br>
+          <p>
+            📅 <strong>7 de noviembre de 2027</strong>
+          </p>
+          <p>
+            🕘 <strong>21:00 hs</strong>
+          </p>
+          <p>
+            📍 <strong>Salón M y M</strong>
+          </p>
         </div>
-
-
-        <!-- =================================
-             MARCO DORADO
-        ================================== -->
-
-        <div class="frame">
-
-            <div class="corner top-left">❦</div>
-
-            <div class="corner top-right">❦</div>
-
-            <div class="corner bottom-left">❦</div>
-
-            <div class="corner bottom-right">❦</div>
-
+        <div class="separador"></div>
+        <p class="frase">
+          Prepará tu mejor sonrisa...
+          <br>
+          porque estamos a punto de vivir
+          una noche inolvidable. 💜
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- CONFIRMACIÓN -->
+  <section>
+    <div class="contenido">
+      <div class="tarjeta">
+        <div class="corona">💜</div>
+        <h2>¿Nos acompañás?</h2>
+        <div class="separador"></div>
+        <p class="frase">
+          Tu presencia hará que esta noche
+          sea todavía más especial.
+        </p>
+        <div class="rsvp">
+          <!-- CAMBIAR ESTE NÚMERO POR EL WHATSAPP -->
+          <a
+            href="https://wa.me/5492900000000?text=Hola%20Samara%20%F0%9F%92%9C%20Confirmo%20mi%20asistencia%20a%20tus%2015"
+            target="_blank">
+            Confirmar asistencia 💌
+          </a>
         </div>
-
-
-        <!-- =================================
-             TEXTO PRINCIPAL
-        ================================== -->
-
-        <section class="contenido">
-
-            <div class="sol">
-                ☼
-            </div>
-
-            <div class="mis15">
-                MIS 15
-            </div>
-
-            <h1>
-                Samara
-            </h1>
-
-            <div class="linea">
-
-                <span></span>
-
-                <b>✦</b>
-
-                <span></span>
-
-            </div>
-
-            <div class="fecha">
-                7 · 11 · 2026
-            </div>
-
-        </section>
-
-
-        <!-- =================================
-             INDICACIÓN
-        ================================== -->
-
-        <div class="continuar">
-
-            <span>
-                Deslizá para descubrir
-            </span>
-
-            <div class="flecha">
-                ⌄
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <script src="script.js"></script>
-
+      </div>
+    </div>
+  </section>
+  <footer>
+    Con mucho amor, Samara ✨
+    <br><br>
+    Mis 15 · 2027
+  </footer>
+  <script>
+    const audio = document.getElementById("audio");
+    const botonMusica = document.getElementById("musica");
+    function toggleMusica() {
+      if (audio.paused) {
+        audio.play()
+          .then(() => {
+            botonMusica.textContent = "🔊";
+          })
+          .catch(() => {
+            alert("Tocá nuevamente el botón para iniciar la música 🎵");
+          });
+      } else {
+        audio.pause();
+        botonMusica.textContent = "🎵";
+      }
+    }
+  </script>
 </body>
 </html>
-  
 
-    
-   
+          
 
-   
-  
+        
+            
+     
+
    
     
    
