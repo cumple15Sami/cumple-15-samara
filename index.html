@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mis 15 | Samara ✨</title>
+
+  <meta name="description" content="Invitación digital a los 15 años de Samara">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 50% 20%, #5b2b91 0%, transparent 35%),
+        linear-gradient(180deg, #120720 0%, #2b104b 50%, #100619 100%);
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       ESTRELLAS
+    ========================= */
+
+    .cielo {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(255,220,150,.7) 1px, transparent 1.5px);
+      background-size: 85px 85px, 135px 135px;
+      background-position: 10px 20px, 40px 70px;
+      opacity: .55;
+    }
+
+    /* =========================
+       CONTENEDOR
+    ========================= */
+
+    .contenido {
+      width: min(900px, 92%);
+      margin: auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    section {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    /* =========================
+       PORTADA
+    ========================= */
+
+    .portada {
+      background:
+        radial-gradient(circle at center, rgba(130,70,190,.18), transparent 60%);
+    }
+
+    .corona {
+      font-size: 58px;
+      margin-bottom: 15px;
+      animation: brillo 2s ease-in-out infinite alternate;
+    }
+
+    .texto-pequeno {
+      font-size: 20px;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: #f7df9b;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(68px, 16vw, 140px);
+      line-height: .9;
+      font-weight: normal;
+      color: #ead7ff;
+      font-style: italic;
+      text-shadow:
+        0 0 12px rgba(220,180,255,.8),
+        0 0 35px rgba(180,120,255,.5);
+    }
+
+    .subtitulo {
+      margin-top: 25px;
+      font-size: clamp(18px, 4vw, 26px);
+      line-height: 1.6;
+      color: #f9efff;
+    }
+
+    .linea-dorada {
+      width: 110px;
+      height: 1px;
+      margin: 28px auto;
+      background: #f4d47d;
+      box-shadow: 0 0 10px #f4d47d;
+    }
+
+    .fecha-portada {
+      font-size: clamp(25px, 6vw, 42px);
+      color: #f7dc8a;
+      letter-spacing: 3px;
+    }
+
+    .hora {
+      margin-top: 8px;
+      font-size: 20px;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 30px;
+      border: 1px solid #f5d77f;
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      background: rgba(255,255,255,.08);
+      transition: all .3s ease;
+    }
+
+    .boton:hover {
+      background: #f5d77f;
+      color: #291044;
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(245,215,127,.5);
+    }
+
+    .flecha {
+      margin-top: 35px;
+      font-size: 14px;
+      color: #d8c4e8;
+      animation: subirBajar 1.7s infinite;
+    }
+
+    /* =========================
+       TARJETAS
+    ========================= */
+
+    .tarjeta {
+      width: 100%;
+      max-width: 720px;
+      padding: 48px 28px;
+      border-radius: 30px;
+      border: 1px solid rgba(245,215,127,.5);
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(10px);
+      box-shadow:
+        0 15px 50px rgba(0,0,0,.3),
+        inset 0 0 30px rgba(255,255,255,.03);
+    }
+
+    h2 {
+      color: #f7dc8a;
+      font-size: clamp(32px, 7vw, 48px);
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .texto {
+      font-size: 19px;
+      line-height: 1.8;
+      color: #f7edff;
+    }
+
+    .detalle {
+      margin-top: 25px;
+      font-size: 20px;
+      line-height: 2;
+    }
+
+    .detalle strong {
+      color: #f7dc8a;
+    }
+
+    /* =========================
+       CUENTA REGRESIVA
+    ========================= */
+
+    .contador {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .tiempo {
+      padding: 18px 8px;
+      border: 1px solid rgba(245,215,127,.4);
+      border-radius: 18px;
+      background: rgba(0,0,0,.15);
+    }
+
+    .numero {
+      display: block;
+      font-size: clamp(25px, 6vw, 42px);
+      color: #f7dc8a;
+    }
+
+    .etiqueta {
+      display: block;
+      margin-top: 5px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #dccce8;
+    }
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    .confirmar {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 16px 30px;
+      border-radius: 50px;
+      background: #f7dc8a;
+      color: #291044;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .confirmar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(247,220,138,.5);
+    }
+
+    /* =========================
+       MÚSICA
+    ========================= */
+
+    #botonMusica {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 55px;
+      height: 55px;
+      border: 1px solid #f7dc8a;
+      border-radius: 50%;
+      background: rgba(43,16,75,.9);
+      color: #f7dc8a;
+      font-size: 23px;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 0 20px rgba(247,220,138,.35);
+    }
+
+    /* =========================
+       FAROLITOS
+    ========================= */
+
+    .farolito {
+      position: absolute;
+      bottom: -70px;
+      width: 27px;
+      height: 40px;
+      border-radius: 45%;
+      background: linear-gradient(#fff6bd, #f0a53c);
+      box-shadow:
+        0 0 15px #ffd35e,
+        0 0 35px #ffb52e,
+        0 0 60px rgba(255,180,40,.4);
+      opacity: 0;
+      z-index: 3;
+      animation: volar 11s linear infinite;
+    }
+
+    .farolito::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 7px;
+      width: 13px;
+      height: 9px;
+      border: 2px solid #d79a38;
+      border-bottom: none;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .f1 {
+      left: 8%;
+      animation-delay: 0s;
+    }
+
+    .f2 {
+      left: 25%;
+      animation-delay: 3s;
+      transform: scale(.7);
+    }
+
+    .f3 {
+      left: 48%;
+      animation-delay: 6s;
+      transform: scale(.85);
+    }
+
+    .f4 {
+      left: 70%;
+      animation-delay: 1.5s;
+      transform: scale(.65);
+    }
+
+    .f5 {
+      left: 88%;
+      animation-delay: 4.5s;
+      transform: scale(.9);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 45px 20px 70px;
+      text-align: center;
+      background: #0c0414;
+      color: #cdbada;
+      position: relative;
+      z-index: 5;
+    }
+
+    footer strong {
+      color: #f7dc8a;
+    }
+
+    /* =========================
+       ANIMACIONES
+    ========================= */
+
+    @keyframes brillo {
+      from {
+        filter: drop-shadow(0 0 5px #f7dc8a);
+      }
+
+      to {
+        filter: drop-shadow(0 0 25px #f7dc8a);
+      }
+    }
+
+    @keyframes subirBajar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    @keyframes volar {
+      0% {
+        transform: translateY(0) translateX(0) scale(.75);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: .9;
+      }
+
+      50% {
+        transform: translateY(-55vh) translateX(35px) scale(1);
+        opacity: .9;
+      }
+
+      100% {
+        transform: translateY(-120vh) translateX(-25px) scale(.65);
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       CELULAR
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 45px 16px;
+      }
+
+      .tarjeta {
+        padding: 38px 20px;
+      }
+
+      .texto {
+        font-size: 17px;
+      }
+
+      .detalle {
+        font-size: 18px;
+      }
+
+      .contador {
+        gap: 7px;
+      }
+
+      .tiempo {
+        padding: 14px 4px;
+      }
+
+      .etiqueta {
+        font-size: 10px;
+      }
+
+      #botonMusica {
+        width: 50px;
+        height: 50px;
+        right: 15px;
+        bottom: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CIELO -->
+  <div class="cielo"></div>
+
+  <!-- FAROLITOS -->
+  <div class="farolito f1"></div>
+  <div class="farolito f2"></div>
+  <div class="farolito f3"></div>
+  <div class="farolito f4"></div>
+  <div class="farolito f5"></div>
+
+  <!-- MÚSICA -->
+  <audio id="audio" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="botonMusica" onclick="toggleMusica()" aria-label="Música">
+    🎵
+  </button>
+
+
+  <!-- =========================
+       PORTADA
+  ========================== -->
+
+  <section class="portada">
+
+    <div class="contenido">
+
+      <div class="corona">👑</div>
+
+      <div class="texto-pequeno">
+        Mis 15
+      </div>
+
+      <h1>
+        Samara
+      </h1>
+
+      <div class="linea-dorada"></div>
+
+      <p class="subtitulo">
+        Una noche mágica está por comenzar... ✨
+        <br>
+        Quiero compartirla con vos.
+      </p>
+
+      <div class="fecha-portada">
+        07 · 11 · 2027
+      </div>
+
+      <div class="hora">
+        21:00 hs
+      </div>
+
+      <a href="#bienvenida" class="boton">
+        Abrir invitación ✨
+      </a>
+
+      <div class="flecha">
+        Deslizá hacia abajo ↓
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       BIENVENIDA
+  ========================== -->
+
+  <section id="bienvenida">
+
+    <div class="contenido">
+
+      <div class="tarjeta">
+
+        <div class="corona">
+          ✨
+        </div>
+
+        <h2>
+          Una noche inolvidable
+        </h2>
+
+        <div class="linea-dorada"></div>
+
+        <p class="texto">
+          Hay momentos que quedan guardados
+          para siempre en el corazón.
+          <br><br>
+          Mis 15 son uno de ellos y quiero
+          celebrarlos rodeada de las personas
+          que quiero.
+          <br><br>
+          <strong>¡Te espero!</strong> 💜
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       DETALLES
+  ========================== -->
+
+  <section>
+
+    <div class="contenido">
+
+      <div class="tarjeta">
+
+        <h2>
+          La celebración
+        </h2>
+
+        <div class="linea-dorada"></div>
+
+        <div class="detalle">
+
+          <p>
+            📅
+            <strong>Fecha</strong>
+            <br>
+            7 de noviembre de 2027
+          </p>
+
+          <br>
+
+          <p>
+            🕘
+            <strong>Hora</strong>
+            <br>
+            21:00 hs
+          </p>
+
+          <br>
+
+          <p>
+            📍
+            <strong>Lugar</strong>
+            <br>
+            Salón M y M
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CUENTA REGRESIVA
+  ========================== -->
+
+  <section>
+
+    <div class="contenido">
+
+      <div class="tarjeta">
+
+        <div class="corona">
+          🏮
+        </div>
+
+        <h2>
+          Falta muy poquito
+        </h2>
+
+        <p class="texto">
+          para vivir juntos esta noche mágica
+        </p>
+
+        <div class="contador">
+
+          <div class="tiempo">
+            <span class="numero" id="dias">0</span>
+            <span class="etiqueta">Días</span>
+          </div>
+
+          <div class="tiempo">
+            <span class="numero" id="horas">0</span>
+            <span class="etiqueta">Horas</span>
+          </div>
+
+          <div class="tiempo">
+            <span class="numero" id="minutos">0</span>
+            <span class="etiqueta">Minutos</span>
+          </div>
+
+          <div class="tiempo">
+            <span class="numero" id="segundos">0</span>
+            <span class="etiqueta">Segundos</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONFIRMACIÓN
+  ========================== -->
+
+  <section>
+
+    <div class="contenido">
+
+      <div class="tarjeta">
+
+        <div class="corona">
+          💌
+        </div>
+
+        <h2>
+          ¿Nos acompañás?
+        </h2>
+
+        <div class="linea-dorada"></div>
+
+        <p class="texto">
+          Tu presencia hará que esta noche
+          sea todavía más especial.
+          <br><br>
+          Por favor, confirmá tu asistencia.
+        </p>
+
+        <!--
+          IMPORTANTE:
+          Reemplazar 5492900000000
+          por el número real de WhatsApp.
+        -->
+
+        <a
+          class="confirmar"
+          href="https://wa.me/5492900000000?text=Hola%20Samara%20💜%20Confirmo%20mi%20asistencia%20a%20tus%2015"
+          target="_blank"
+          rel="noopener">
+          Confirmar asistencia 💜
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FINAL
+  ========================== -->
+
+  <section>
+
+    <div class="contenido">
+
+      <div class="tarjeta">
+
+        <div class="corona">
+          👑
+        </div>
+
+        <h2>
+          Gracias por ser parte
+        </h2>
+
+        <div class="linea-dorada"></div>
+
+        <p class="texto">
+          Te espero para compartir
+          una noche llena de magia,
+          música y momentos inolvidables.
+          <br><br>
+          💜✨🏮
+        </p>
+
+        <div class="linea-dorada"></div>
+
+        <p class="texto">
+          Con cariño,
+          <br>
+          <strong>Samara</strong>
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    <strong>Mis 15 · Samara</strong>
+    <br><br>
+    7 de noviembre de 2027 · 21:00 hs
+  </footer>
+
+
+  <script>
+
+    /* =========================
+       CUENTA REGRESIVA
+    ========================== */
+
+    const fechaEvento = new Date("November 7, 2027 21:00:00").getTime();
+
+    function actualizarContador() {
+
+      const ahora = new Date().getTime();
+      const diferencia = fechaEvento - ahora;
+
+      if (diferencia <= 0) {
+
+        document.getElementById("dias").textContent = "0";
+        document.getElementById("horas").textContent = "0";
+        document.getElementById("minutos").textContent = "0";
+        document.getElementById("segundos").textContent = "0";
+
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+      const horas = Math.floor(
+        (diferencia / (1000 * 60 * 60)) % 24
+      );
+
+      const minutos = Math.floor(
+        (diferencia / (1000 * 60)) % 60
+      );
+
+      const segundos = Math.floor(
+        (diferencia / 1000) % 60
+      );
+
+      document.getElementById("dias").textContent = dias;
+      document.getElementById("horas").textContent = horas;
+      document.getElementById("minutos").textContent = minutos;
+      document.getElementById("segundos").textContent = segundos;
+    }
+
+    actualizarContador();
+
+    setInterval(actualizarContador, 1000);
+
+
+    /* =========================
+       MÚSICA
+    ========================== */
+
+    const audio = document.getElementById("audio");
+    const botonMusica = document.getElementById("botonMusica");
+
+    function toggleMusica() {
+
+      if (audio.paused) {
+
+        audio.play()
+          .then(() => {
+            botonMusica.textContent = "🔊";
+          })
+          .catch(() => {
+            alert("Primero agregaremos la música a la invitación 🎵");
+          });
+
+      } else {
+
+        audio.pause();
+        botonMusica.textContent = "🎵";
+
+      }
+    }
+
+  </script>
+
+</body>
+</html>
