@@ -3,252 +3,317 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>¡Los 15 de Samara!</title>
+  <title>Invitación - Los 15 de Samara</title>
+  <meta name="description" content="Invitación elegante y mágica para los 15 años de Samara inspirada en Rapunzel Disney." />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap');
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #a491c8, #4e3c6d);
-      color: #f0e7c2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      background: linear-gradient(180deg, #170d2b, #32145c, #160b27);
+      color: #f8eaff;
       overflow-x: hidden;
-      padding: 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .invitacion {
-      background: #3c2f63;
-      border: 5px solid #d4af37;
-      border-radius: 20px;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 0 15px rgba(212,175,55,0.6);
-      padding: 35px 30px 50px;
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      position: relative;
     }
-    /* Marco dorado sutil */
-    .invitacion::before {
-      content: '';
-      pointer-events: none;
-      position: absolute;
-      inset: 5px;
-      border: 2px solid #bfa93f;
-      border-radius: 18px;
-      box-shadow: inset 0 0 15px #bfa93faa;
-      z-index: 0;
+    header {
+      margin-bottom: 40px;
     }
-    .nombre {
+    h1.nombre {
       font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      color: #f7d982;
+      text-shadow: 0 0 10px rgba(247, 217, 130, 0.8);
+      margin-bottom: 15px;
       font-weight: 700;
-      font-size: 3.2rem;
-      color: #f9d571;
-      text-shadow: 0 0 10px #bfa93f88;
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 1;
-      letter-spacing: 3.5px;
+      letter-spacing: 6px;
     }
-    .titulo {
+    .mis15 {
       font-weight: 700;
       letter-spacing: 8px;
-      font-size: 1.7rem;
-      margin-bottom: 10px;
-      color: #d4af37;
-      font-family: 'Montserrat', sans-serif;
-      text-shadow: 0 0 15px #d4af37aa;
-      position: relative;
-      z-index: 1;
+      font-size: clamp(1.4rem, 4vw, 2.8rem);
+      color: #ead8ff;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px rgba(220, 180, 255, 0.7);
     }
     .frase {
-      font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 1.2rem;
-      color: #e0d1a6;
-      margin: 20px auto 30px;
-      line-height: 1.55;
-      max-width: 320px;
-      position: relative;
-      z-index: 1;
-    }
-    .detalles {
-      background: rgba(212,175,55,0.15);
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 30px;
-      font-size: 1rem;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      max-width: 600px;
+      margin: 0 auto 40px;
       line-height: 1.6;
-      font-weight: 600;
-      color: #fff6c2;
-      box-shadow: inset 0 0 12px #d4af3733;
+      color: #f8eaff;
+      text-shadow: 0 0 5px rgba(255,255,255,0.3);
+    }
+    /* Foto con reflejo */
+    .foto-container {
+      max-width: 320px;
+      margin: 0 auto 50px;
       position: relative;
-      z-index: 1;
-      font-family: 'Montserrat', sans-serif;
     }
-    .detalles p {
-      margin: 8px 0;
+    .foto-container img.foto-principal {
+      width: 100%;
+      border-radius: 25px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+      position: relative;
+      z-index: 10;
     }
-    .detalles strong {
-      color: #f9d571;
+    .foto-container img.foto-reflejo {
+      width: 100%;
+      border-radius: 0 0 25px 25px;
+      transform: scaleY(-1);
+      opacity: 0.15;
+      filter: blur(3px);
+      margin-top: -15px;
+      position: relative;
+      z-index: 5;
     }
-    .regalo {
+    /* Detalles */
+    section.detalles, section.regalo, section.rsvp {
+      background: rgba(248, 234, 255, 0.1);
+      border-radius: 25px;
+      padding: 30px 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 25px rgba(220,180,255,0.5);
+      max-width: 700px;
+    }
+    section.detalles h2,
+    section.regalo h2,
+    section.rsvp h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      color: #f7d982;
+      margin-bottom: 18px;
+      letter-spacing: 3px;
+    }
+    .detalle p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      line-height: 1.7;
+      color: #ead8ff;
+      margin-bottom: 13px;
+    }
+    .detalle strong {
+      color: #f7d982;
+    }
+    /* Regalo */
+    .alias {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #f7d982;
+      user-select: text;
+      letter-spacing: 0.05em;
       background: rgba(247, 217, 130, 0.25);
       border-radius: 12px;
-      padding: 16px 22px;
-      color: #5a460d;
-      font-weight: 700;
-      box-shadow: inset 0 0 12px #f7d9828c;
-      margin-bottom: 38px;
-      letter-spacing: 0.06em;
-      font-family: 'Montserrat', sans-serif;
-      user-select: text;
-      position: relative;
-      z-index: 1;
+      padding: 13px 20px;
+      box-shadow: inset 0 0 15px #f7d982aa;
+      max-width: 350px;
+      margin: 0 auto;
     }
+    /* Botón confirmar */
     .boton-whatsapp {
       display: inline-block;
       background: #25d366;
-      color: #fff;
+      color: #ffffff;
       font-weight: 700;
-      padding: 15px 38px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      padding: 18px 42px;
       border-radius: 50px;
       text-decoration: none;
-      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.7);
-      transition: background-color 0.3s ease, transform 0.25s ease;
-      position: relative;
-      z-index: 2;
+      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.75);
+      transition: all 0.3s ease;
+      user-select: none;
     }
-    .boton-whatsapp:hover {
+    .boton-whatsapp:hover,
+    .boton-whatsapp:focus {
       background: #1ebe56;
-      transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(30, 190, 86, 0.85);
+      transform: scale(1.05);
+      outline: none;
     }
     /* Linternas flotantes */
     .farolito {
-      position: absolute;
-      width: 30px;
-      height: 42px;
+      position: fixed;
+      width: 28px;
+      height: 38px;
       border-radius: 45% 45% 40% 40%;
-      background: linear-gradient(180deg, #fff4b0, #f5a83c);
+      background: linear-gradient(#fff4b0, #f5a83c);
       box-shadow:
-        0 0 20px #ffd45c,
-        0 0 45px #ffb52e,
-        0 0 70px rgba(255, 180, 40, 0.5);
-      opacity: 0.85;
-      animation: flotar 11s infinite ease-in-out;
-      filter: drop-shadow(0 0 4px #ffb52e);
+        0 0 15px #ffd45c,
+        0 0 35px #ffb52e,
+        0 0 60px rgba(255,180,40,.5);
+      opacity: .85;
+      animation: flotar 9s infinite ease-in-out;
+      pointer-events: none;
       z-index: 0;
+      filter: drop-shadow(0 0 5px #ffb52e);
     }
     .farolito::before {
       content: "";
       position: absolute;
       top: -7px;
       left: 7px;
-      width: 16px;
-      height: 11px;
-      border: 3px solid #d99b36;
+      width: 14px;
+      height: 8px;
+      border: 2px solid #d99b36;
       border-bottom: none;
-      border-radius: 12px 12px 0 0;
+      border-radius: 10px 10px 0 0;
     }
-    .f1 { left: 9%; bottom: -55px; animation-delay: 0s; }
-    .f2 { left: 25%; bottom: -75px; animation-delay: 2.2s; transform: scale(0.75); }
-    .f3 { left: 47%; bottom: -60px; animation-delay: 4.4s; transform: scale(0.85); }
-    .f4 { left: 72%; bottom: -80px; animation-delay: 1.5s; transform: scale(0.7); }
-    .f5 { left: 87%; bottom: -65px; animation-delay: 3.6s; transform: scale(0.9); }
+    .f1 { left: 8%; bottom: -50px; animation-delay: 0s; }
+    .f2 { left: 23%; bottom: -80px; animation-delay: 2s; transform: scale(.7); }
+    .f3 { left: 48%; bottom: -60px; animation-delay: 4s; transform: scale(.85); }
+    .f4 { left: 72%; bottom: -90px; animation-delay: 1s; transform: scale(.65); }
+    .f5 { left: 88%; bottom: -70px; animation-delay: 3s; transform: scale(.9); }
     @keyframes flotar {
       0% {
-        transform: translateY(0) translateX(0) scale(0.8);
+        transform: translateY(0) translateX(0) scale(.8);
         opacity: 0;
       }
-      15% {
-        opacity: 0.9;
+      10% {
+        opacity: .9;
       }
-      55% {
-        transform: translateY(-58vh) translateX(35px) scale(1);
+      50% {
+        transform: translateY(-55vh) translateX(35px) scale(1);
       }
       100% {
-        transform: translateY(-125vh) translateX(-30px) scale(0.7);
+        transform: translateY(-115vh) translateX(-25px) scale(.7);
         opacity: 0;
       }
     }
-    /* Botón música */
+    /* Música */
     #audio-control {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background: #d4af37;
+      background: #f7d982;
       border-radius: 50%;
       border: none;
       width: 52px;
       height: 52px;
-      font-size: 25px;
-      color: #3c2f63;
+      font-size: 26px;
+      color: #32145c;
       cursor: pointer;
-      box-shadow: 0 0 17px #d4af37bb;
-      z-index: 1000;
+      box-shadow: 0 0 20px rgba(247,217,130,.6);
+      z-index: 10;
       transition: background-color 0.3s ease;
     }
-    #audio-control:hover {
-      background: #b88e1f;
-      box-shadow: 0 0 28px #b88e1fdd;
+    #audio-control:hover,
+    #audio-control:focus {
+      background: #d4af37;
+      outline: none;
+    }
+    /* Footer */
+    footer {
+      margin: 50px 0 30px;
+      font-size: 0.9rem;
+      color: #cdbbdf;
+      text-align: center;
+      user-select: none;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      main {
+        padding: 20px 15px;
+      }
+      section.detalles, section.regalo, section.rsvp {
+        padding: 25px 20px;
+      }
+      .foto-container {
+        max-width: 90vw;
+      }
+      .boton-whatsapp {
+        font-size: 1rem;
+        padding: 14px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="invitacion" role="main" aria-label="Invitación de quince años de Samara">
-    <div class="titulo" aria-hidden="true">Mis 15 Años</div>
-    <h1 class="nombre" aria-label="Cumpleaños de Samara">Samara</h1>
-    <p class="frase" aria-label="Frase de invitación">
-      "Dejemos que la luz de esta noche mágica ilumine cada paso hacia un sueño cumplido."
-    </p>
-    <section class="detalles" aria-label="Detalles del evento">
-      <p>📅 <strong>Fecha:</strong> 7 de noviembre de 2026</p>
-      <p>🕘 <strong>Hora:</strong> 21:00 hs</p>
-      <p>📍 <strong>Lugar:</strong> Salón de eventos M&amp;M, Marcos Zar 656</p>
+  <!-- Linternas flotantes -->
+  <div class="farolito f1" aria-hidden="true"></div>
+  <div class="farolito f2" aria-hidden="true"></div>
+  <div class="farolito f3" aria-hidden="true"></div>
+  <div class="farolito f4" aria-hidden="true"></div>
+  <div class="farolito f5" aria-hidden="true"></div>
+  <main>
+    <header>
+      <div class="mis15" aria-hidden="true">Mis 15</div>
+      <h1 class="nombre">Samara</h1>
+      <div class="foto-container" aria-label="Foto de Samara">
+        <img src="tu-foto.jpg" alt="Foto de Samara" class="foto-principal" />
+        <img src="tu-foto.jpg" alt="" aria-hidden="true" class="foto-reflejo" />
+      </div>
+      <p class="frase">
+        "Dejemos que la luz de esta noche mágica ilumine cada paso hacia un sueño cumplido."
+      </p>
+    </header>
+    <section class="detalles" aria-labelledby="detalles-title">
+      <h2 id="detalles-title">Detalles del evento</h2>
+      <div class="detalle">
+        <p><strong>📅 Fecha:</strong> 7 de noviembre de 2026</p>
+        <p><strong>🕘 Hora:</strong> 21:00 hs</p>
+        <p><strong>📍 Lugar:</strong> Salón de eventos M&amp;M, Marcos Zar 656</p>
+      </div>
     </section>
-    <section class="regalo" aria-label="Información para regalo">
-      <p>💛 <strong>Alias para transferencia:</strong></p>
-      <p>blanco.samara</p>
+    <section class="regalo" aria-labelledby="regalo-title">
+      <h2 id="regalo-title">Información para regalo</h2>
+      <p>Alias para transferencia:</p>
+      <div class="alias" tabindex="0">blanco.samara</div>
     </section>
-    <a href="https://wa.me/5492901303984?text=Hola%20Samara%20👑%20Confirmo%20mi%20asistencia%20a%20tu%20fiesta%20de%2015%20años" 
-      target="_blank" rel="noopener" class="boton-whatsapp" aria-label="Confirmar asistencia por WhatsApp">
-      Confirmar asistencia 💬
-    </a>
-    <!-- Linternas -->
-    <div class="farolito f1" aria-hidden="true"></div>
-    <div class="farolito f2" aria-hidden="true"></div>
-    <div class="farolito f3" aria-hidden="true"></div>
-    <div class="farolito f4" aria-hidden="true"></div>
-    <div class="farolito f5" aria-hidden="true"></div>
-  </div>
-  <!-- Botón para música -->
-  <button id="audio-control" aria-label="Reproducir o pausar música">
+    <section class="rsvp" aria-labelledby="rsvp-title">
+      <h2 id="rsvp-title">¿Nos acompañás?</h2>
+      <p>
+        Tu presencia hará que esta noche sea todavía más especial.
+      </p>
+      <a 
+        href="https://wa.me/5492901303984?text=Hola%20Samara%20👑%20Confirmo%20mi%20asistencia%20a%20tu%20fiesta%20de%2015%20años" 
+        target="_blank" rel="noopener" 
+        class="boton-whatsapp"
+        aria-label="Confirmar asistencia por WhatsApp">
+        Confirmar asistencia 💌
+      </a>
+    </section>
+  </main>
+  <button id="audio-control" aria-label="Reproducir o pausar música" title="Reproducir o pausar música">
     🎵
   </button>
-  <!-- YouTube iframe música -->
+  <!-- Música embebida de YouTube (sin controles visibles) -->
   <iframe id="audio-iframe"
           src="https://www.youtube.com/embed/9bGFko9SM0M?autoplay=0&loop=1&playlist=9bGFko9SM0M&controls=0&mute=1&enablejsapi=1"
           frameborder="0"
-          allow="autoplay"
           style="display:none"
           aria-hidden="true"></iframe>
+  <footer>
+    Con mucho amor, Samara ✨<br />
+    Mis 15 · 2026
+  </footer>
   <script>
     let player;
     let isPlaying = false;
     const btn = document.getElementById('audio-control');
-    const iframe = document.getElementById('audio-iframe');
-    // Carga la API de YouTube para controlar el iframe con JS
-    let tag = document.createElement('script');
+    // Load YouTube IFrame Player API
+    const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('audio-iframe', {
         events: {
           'onReady': () => {
-            player.mute(); // Música inicial en mute para no molestar
+            player.mute();
           }
         }
       });
@@ -269,10 +334,11 @@
 </body>
 </html>
  
+    
+  
+   
 
-
-
- 
+   
        
 
  
