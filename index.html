@@ -1,116 +1,112 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Invitación 15 años Samara</title>
+  <title>¡Los 15 de Samara!</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap');
-    /* Reset y base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
+      margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #5D3A85, #A992CE);
-      color: #eee;
-      min-height: 100vh;
+      background: linear-gradient(135deg, #a491c8, #4e3c6d);
+      color: #f0e7c2;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 20px;
     }
     .invitacion {
-      position: relative;
-      max-width: 450px;
-      background: linear-gradient(145deg, #6e56a6, #a593cc);
-      border: 6px solid #d4af37; /* dorado */
-      border-radius: 25px;
-      box-shadow:
-        0 0 10px #d4af37,
-        inset 0 0 30px #a08628;
-      overflow: hidden;
-      padding: 35px 25px 50px;
+      background: #3c2f63;
+      border: 5px solid #d4af37;
+      border-radius: 20px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 0 15px rgba(212,175,55,0.6);
+      padding: 35px 30px 50px;
       text-align: center;
+      position: relative;
     }
-    /* Marco dorado decorativo */
+    /* Marco dorado sutil */
     .invitacion::before {
-      content: "";
+      content: '';
       pointer-events: none;
       position: absolute;
-      inset: 0;
-      border-radius: 25px;
-      border: 3px solid #f9d571;
-      box-shadow:
-        0 0 14px #f9d571,
-        inset 0 0 25px #fff8b6;
+      inset: 5px;
+      border: 2px solid #bfa93f;
+      border-radius: 18px;
+      box-shadow: inset 0 0 15px #bfa93faa;
       z-index: 0;
-      transition: box-shadow 0.3s ease-in-out;
     }
-    .invitacion:hover::before {
-      box-shadow:
-        0 0 25px #f9d571,
-        inset 0 0 35px #fff8b6;
-    }
-    /* NOMBRE */
     .nombre {
       font-family: 'Playfair Display', serif;
-      font-size: 3.3rem;
       font-weight: 700;
+      font-size: 3.2rem;
       color: #f9d571;
-      text-shadow: 0 0 12px #f9d571, 0 0 30px #b88e1f;
+      text-shadow: 0 0 10px #bfa93f88;
       margin-bottom: 12px;
       position: relative;
-      z-index: 2;
-      letter-spacing: 3px;
+      z-index: 1;
+      letter-spacing: 3.5px;
     }
-    /* Frase */
+    .titulo {
+      font-weight: 700;
+      letter-spacing: 8px;
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: #d4af37;
+      font-family: 'Montserrat', sans-serif;
+      text-shadow: 0 0 15px #d4af37aa;
+      position: relative;
+      z-index: 1;
+    }
     .frase {
+      font-family: 'Playfair Display', serif;
       font-style: italic;
       font-size: 1.2rem;
-      color: #e9d8a6;
-      margin-bottom: 25px;
+      color: #e0d1a6;
+      margin: 20px auto 30px;
       line-height: 1.55;
+      max-width: 320px;
       position: relative;
-      z-index: 2;
-      font-family: 'Playfair Display', serif;
+      z-index: 1;
     }
-    /* Detalles del evento */
     .detalles {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 18px 15px;
+      background: rgba(212,175,55,0.15);
+      border-radius: 12px;
+      padding: 18px 20px;
       margin-bottom: 30px;
       font-size: 1rem;
       line-height: 1.6;
       font-weight: 600;
-      color: #f0e7b9;
-      box-shadow: inset 0 0 15px #d4af37aa;
+      color: #fff6c2;
+      box-shadow: inset 0 0 12px #d4af3733;
       position: relative;
-      z-index: 2;
+      z-index: 1;
       font-family: 'Montserrat', sans-serif;
+    }
+    .detalles p {
+      margin: 8px 0;
     }
     .detalles strong {
       color: #f9d571;
     }
-    /* Regalo */
     .regalo {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 15px;
-      padding: 15px 18px;
-      font-size: 1rem;
-      color: #f9d571;
+      background: rgba(247, 217, 130, 0.25);
+      border-radius: 12px;
+      padding: 16px 22px;
+      color: #5a460d;
       font-weight: 700;
-      box-shadow: inset 0 0 15px #f9d57188;
-      margin-bottom: 32px;
+      box-shadow: inset 0 0 12px #f7d9828c;
+      margin-bottom: 38px;
       letter-spacing: 0.06em;
       font-family: 'Montserrat', sans-serif;
+      user-select: text;
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
-    /* Botón confirmación */
     .boton-whatsapp {
       display: inline-block;
       background: #25d366;
@@ -123,33 +119,33 @@
       box-shadow: 0 6px 12px rgba(37, 211, 102, 0.7);
       transition: background-color 0.3s ease, transform 0.25s ease;
       position: relative;
-      z-index: 3;
+      z-index: 2;
     }
     .boton-whatsapp:hover {
       background: #1ebe56;
-      transform: scale(1.08);
+      transform: scale(1.05);
       box-shadow: 0 10px 20px rgba(30, 190, 86, 0.85);
     }
-    /* LINTERNAS FLOTANTES */
+    /* Linternas flotantes */
     .farolito {
       position: absolute;
-      width: 32px;
-      height: 44px;
+      width: 30px;
+      height: 42px;
       border-radius: 45% 45% 40% 40%;
-      background: linear-gradient(#fff4b0, #f5a83c);
+      background: linear-gradient(180deg, #fff4b0, #f5a83c);
       box-shadow:
-        0 0 22px #ffd45c,
-        0 0 50px #ffb52e,
-        0 0 85px rgba(255, 180, 40, 0.6);
+        0 0 20px #ffd45c,
+        0 0 45px #ffb52e,
+        0 0 70px rgba(255, 180, 40, 0.5);
       opacity: 0.85;
-      animation: flotar 10s infinite ease-in-out;
-      filter: drop-shadow(0 0 3px #ffb52e);
-      z-index: 1;
+      animation: flotar 11s infinite ease-in-out;
+      filter: drop-shadow(0 0 4px #ffb52e);
+      z-index: 0;
     }
     .farolito::before {
       content: "";
       position: absolute;
-      top: -8px;
+      top: -7px;
       left: 7px;
       width: 16px;
       height: 11px;
@@ -157,134 +153,105 @@
       border-bottom: none;
       border-radius: 12px 12px 0 0;
     }
-    .f1 { left: 7%; bottom: -60px; animation-delay: 0s; }
-    .f2 { left: 22%; bottom: -90px; animation-delay: 2.1s; transform: scale(.75); }
-    .f3 { left: 45%; bottom: -70px; animation-delay: 4.2s; transform: scale(.85); }
-    .f4 { left: 68%; bottom: -95px; animation-delay: 1.3s; transform: scale(.7); }
-    .f5 { left: 85%; bottom: -72px; animation-delay: 3.6s; transform: scale(.9); }
+    .f1 { left: 9%; bottom: -55px; animation-delay: 0s; }
+    .f2 { left: 25%; bottom: -75px; animation-delay: 2.2s; transform: scale(0.75); }
+    .f3 { left: 47%; bottom: -60px; animation-delay: 4.4s; transform: scale(0.85); }
+    .f4 { left: 72%; bottom: -80px; animation-delay: 1.5s; transform: scale(0.7); }
+    .f5 { left: 87%; bottom: -65px; animation-delay: 3.6s; transform: scale(0.9); }
     @keyframes flotar {
       0% {
         transform: translateY(0) translateX(0) scale(0.8);
         opacity: 0;
       }
-      10% {
+      15% {
         opacity: 0.9;
       }
-      50% {
-        transform: translateY(-58vh) translateX(32px) scale(1);
+      55% {
+        transform: translateY(-58vh) translateX(35px) scale(1);
       }
       100% {
-        transform: translateY(-120vh) translateX(-38px) scale(0.7);
+        transform: translateY(-125vh) translateX(-30px) scale(0.7);
         opacity: 0;
       }
     }
-    /* MÚSICA */
+    /* Botón música */
     #audio-control {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
+      bottom: 25px;
+      right: 25px;
       background: #d4af37;
       border-radius: 50%;
       border: none;
-      width: 54px;
-      height: 54px;
-      font-size: 24px;
-      color: #532e89;
+      width: 52px;
+      height: 52px;
+      font-size: 25px;
+      color: #3c2f63;
       cursor: pointer;
-      box-shadow: 0 0 20px #d4af37cc;
-      z-index: 999;
+      box-shadow: 0 0 17px #d4af37bb;
+      z-index: 1000;
       transition: background-color 0.3s ease;
     }
     #audio-control:hover {
       background: #b88e1f;
-      box-shadow: 0 0 30px #b88e1fdd;
-    }
-    #audio-iframe {
-      display: none;
-    }
-    /* Responsive */
-    @media (max-width: 480px) {
-      .invitacion {
-        max-width: 95vw;
-        padding: 30px 18px 50px;
-      }
-      .nombre {
-        font-size: 2.2rem;
-      }
-      .frase {
-        font-size: 1rem;
-      }
-      .detalles, .regalo {
-        font-size: 0.9rem;
-      }
-      .boton-whatsapp {
-        padding: 13px 30px;
-        font-size: 1rem;
-      }
+      box-shadow: 0 0 28px #b88e1fdd;
     }
   </style>
 </head>
 <body>
   <div class="invitacion" role="main" aria-label="Invitación de quince años de Samara">
+    <div class="titulo" aria-hidden="true">Mis 15 Años</div>
     <h1 class="nombre" aria-label="Cumpleaños de Samara">Samara</h1>
     <p class="frase" aria-label="Frase de invitación">
-      "En esta noche mágica, la luz que brilla en mi corazón te invita a compartir un sueño hecho realidad."
+      "Dejemos que la luz de esta noche mágica ilumine cada paso hacia un sueño cumplido."
     </p>
-    <div class="detalles" aria-label="Detalles del evento">
+    <section class="detalles" aria-label="Detalles del evento">
       <p>📅 <strong>Fecha:</strong> 7 de noviembre de 2026</p>
       <p>🕘 <strong>Hora:</strong> 21:00 hs</p>
       <p>📍 <strong>Lugar:</strong> Salón de eventos M&amp;M, Marcos Zar 656</p>
-    </div>
-    <div class="regalo" aria-label="Información para regalo">
+    </section>
+    <section class="regalo" aria-label="Información para regalo">
       <p>💛 <strong>Alias para transferencia:</strong></p>
       <p>blanco.samara</p>
-    </div>
+    </section>
     <a href="https://wa.me/5492901303984?text=Hola%20Samara%20👑%20Confirmo%20mi%20asistencia%20a%20tu%20fiesta%20de%2015%20años" 
       target="_blank" rel="noopener" class="boton-whatsapp" aria-label="Confirmar asistencia por WhatsApp">
       Confirmar asistencia 💬
     </a>
-    <!-- Linternas flotantes -->
+    <!-- Linternas -->
     <div class="farolito f1" aria-hidden="true"></div>
     <div class="farolito f2" aria-hidden="true"></div>
     <div class="farolito f3" aria-hidden="true"></div>
     <div class="farolito f4" aria-hidden="true"></div>
     <div class="farolito f5" aria-hidden="true"></div>
   </div>
-  <!-- Control de música -->
-  <button id="audio-control" aria-label="Reproducir pausa música">
+  <!-- Botón para música -->
+  <button id="audio-control" aria-label="Reproducir o pausar música">
     🎵
   </button>
-  <!-- YouTube en iframe oculto para reproducir música -->
-  <iframe
-    id="audio-iframe"
-    width="0"
-    height="0"
-    src="https://www.youtube.com/embed/9bGFko9SM0M?autoplay=0&loop=1&playlist=9bGFko9SM0M&controls=0&mute=1&enablejsapi=1"
-    frameborder="0"
-    allow="autoplay"
-    allowfullscreen
-    aria-hidden="true"
-  ></iframe>
+  <!-- YouTube iframe música -->
+  <iframe id="audio-iframe"
+          src="https://www.youtube.com/embed/9bGFko9SM0M?autoplay=0&loop=1&playlist=9bGFko9SM0M&controls=0&mute=1&enablejsapi=1"
+          frameborder="0"
+          allow="autoplay"
+          style="display:none"
+          aria-hidden="true"></iframe>
   <script>
-    // Control básico de reproducción de YouTube embed por API JS
-    const btn = document.getElementById('audio-control');
-    const iframe = document.getElementById('audio-iframe');
     let player;
     let isPlaying = false;
-    // Carga API YouTube para controlar iframe
+    const btn = document.getElementById('audio-control');
+    const iframe = document.getElementById('audio-iframe');
+    // Carga la API de YouTube para controlar el iframe con JS
     let tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('audio-iframe', {
         events: {
-          'onReady': onPlayerReady
+          'onReady': () => {
+            player.mute(); // Música inicial en mute para no molestar
+          }
         }
       });
-    }
-    function onPlayerReady(event) {
-      // Música cargada, mantén mute para no molestar
-      player.mute();
     }
     btn.addEventListener('click', () => {
       if (!player) return;
@@ -301,6 +268,7 @@
   </script>
 </body>
 </html>
+ 
 
 
 
